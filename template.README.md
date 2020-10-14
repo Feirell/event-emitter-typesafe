@@ -1,11 +1,10 @@
 # event-emitter-typesafe
 
-This package is meant to give you an easy to use way of defining the events an object can emit in two different ways,
-both are typesafe with TypeScript.
+This package is meant to give you an easy to use way of defining an event emitter which is typesafe. Those definitions
+can be either applied by mixin or by extension of the `EventEmitter` class. 
 
-## API
-
-Have a look at the documentation 
+In either way those classes offer the three main methods `add`, `remove` and `dispatch` and several alias. The API
+documentation is available at: https://feirell.github.io/event-emitter-typesafe/.
 
 ## usage
 
@@ -13,14 +12,15 @@ Have a look at the documentation
 
 The easiest way is to just extend the provided `EventEmitter`.
 
-<!-- USEFILE: examples/example-extending.ts; str => str.replace(/\.\.\/src\/event-emitter/g,'event-emitter-typesafe') -->
+<!-- USEFILE: examples/example-extending.ts; str => str.replace(/\.\.\/src\/index/g,'event-emitter-typesafe') -->
 
 ### mixin
 
-You can also use the second option which leverages TypeScript mixins which allows you to not add `EventEmitter` to the prototype chain.
-This can be useful if you have a class already which needs to extend another class. Mixins results in pretty much the same types as extending does.
+You can also use the second option which leverages TypeScript mixins which allow you to provide the functionality off
+the  `EventEmitter` without extending it. This can be useful if you already are extending another class.
+Mixins results in pretty much the same type situation as you would have with extension.
 
-<!-- USEFILE: examples/example-mixin.ts; str => str.replace(/\.\.\/src\/event-emitter/g,'event-emitter-typesafe') -->
+<!-- USEFILE: examples/example-mixin.ts; str => str.replace(/\.\.\/src\/index/g,'event-emitter-typesafe') -->
 
 ### standalone
 
@@ -28,4 +28,5 @@ You could always just create an instance of the `EventEmitter` instead of extend
 
 ## similar
 
-The package [@servie/events](https://www.npmjs.com/package/@servie/events) is quite similar but does not provide a mixin option. 
+The package [@servie/events](https://www.npmjs.com/package/@servie/events) is quite similar but does not provide a mixin
+option and some of the alias. 
