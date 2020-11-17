@@ -67,10 +67,19 @@ export interface EventEmitterInt<Events extends object> {
      * @param name
      * @param event
      */
+    emit<Name extends keyof Events>(name: Name, event: Events[Name]): void;
+
+    /**
+     * Alias for {@link emit}
+     *
+     * @category event dispatching
+     * @param name
+     * @param event
+     */
     dispatch<Name extends keyof Events>(name: Name, event: Events[Name]): void;
 
     /**
-     * Alias for {@link dispatch}
+     * Alias for {@link emit}
      *
      * @category event dispatching
      * @param name
@@ -79,7 +88,7 @@ export interface EventEmitterInt<Events extends object> {
     push<Name extends keyof Events>(name: Name, event: Events[Name]): void;
 
     /**
-     * Alias for {@link dispatch}
+     * Alias for {@link emit}
      *
      * @category event dispatching
      * @param name

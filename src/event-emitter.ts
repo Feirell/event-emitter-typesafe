@@ -55,7 +55,7 @@ export class EventEmitter<Events extends object> implements EventEmitterInt<Even
         return new Promise(res => this.once(name, res))
     }
 
-    dispatch<Name extends keyof Events>(name: Name, event: Events[Name]) {
+    emit<Name extends keyof Events>(name: Name, event: Events[Name]) {
         const listeners = getListeners(this, name);
         for (const listener of listeners)
             listener.call(this, event as any);
@@ -63,6 +63,7 @@ export class EventEmitter<Events extends object> implements EventEmitterInt<Even
 
     // alias
 
+    dispatch<Name extends keyof Events>(name: Name, event: Events[Name]) { }
     push<Name extends keyof Events>(name: Name, event: Events[Name]) { }
     publish<Name extends keyof Events>(name: Name, event: Events[Name]) { }
 
@@ -89,6 +90,7 @@ EventEmitter.prototype.on = EventEmitter.prototype.addEventListener;
 EventEmitter.prototype.addListener = EventEmitter.prototype.addEventListener;
 EventEmitter.prototype.subscribe = EventEmitter.prototype.addEventListener;
 
+EventEmitter.prototype.dispatch = EventEmitter.prototype.emit;
 EventEmitter.prototype.push = EventEmitter.prototype.dispatch;
 EventEmitter.prototype.publish = EventEmitter.prototype.dispatch;
 
