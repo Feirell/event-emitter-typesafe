@@ -14,8 +14,15 @@ class Example extends EventEmitter<ExampleEvents> {
 
 const e = new Example();
 
-// both calls have their correct typings attached
+// add, remove and emit have their correct typings attached
+e.once('example-c', () => console.log('example c was emitted'));
 e.addEventListener('example-c', (ev) => console.log(ev.data));
-e.dispatch('example-c', {data: 12});
+
+// the first and the second listener will be called
+e.emit('example-c', {data: 12});
+
+// only the second listener will be called since the other one detached itself
+// dispatch is just an alias for emit
+e.dispatch('example-c', {data: 42});
 
 e.on('example-a', () => { });

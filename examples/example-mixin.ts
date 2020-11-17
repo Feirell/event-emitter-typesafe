@@ -23,6 +23,6 @@ makeEventEmitter(Example);
 // usage is transparent
 const e = new Example();
 
-// both calls have their correct typings attached
+// add, remove and emit have their correct typings attached
 e.addEventListener('example-c', (ev) => console.log(ev.data));
 e.dispatch('example-c', {data: 12});
