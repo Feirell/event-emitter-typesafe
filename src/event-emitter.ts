@@ -57,7 +57,9 @@ export class EventEmitter<Events extends object> implements EventEmitterInt<Even
 
     emit<Name extends keyof Events>(name: Name, event: Events[Name]) {
         const listeners = getListeners(this, name);
-        for (const listener of listeners)
+
+        // slicing to prevent issue with listener which manipulate the listener array
+        for (const listener of listeners.slice())
             listener.call(this, event as any);
     }
 
