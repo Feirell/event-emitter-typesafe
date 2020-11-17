@@ -1,6 +1,6 @@
 {
   "name": "event-emitter-typesafe",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple event emitter working well with typescript",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
