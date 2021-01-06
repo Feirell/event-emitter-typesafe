@@ -9,7 +9,7 @@
     "build-examples": "tsc -p tsconfig-example.json",
     "build-readme": "ifim template.README.md --add-location-notice"
   },
-  "repository": "https://github.com/Feirell/event-emitter.git",
+  "repository": "https://github.com/Feirell/event-emitter-typesafe.git",
   "author": "Florian Völker <Neirolf2030@web.de>",
   "license": "MIT",
   "files": [
